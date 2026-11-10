@@ -1,17 +1,43 @@
-# servicio_votacion_test
+# Vota Dolores Hidalgo · Plebiscito vecinal
 
-A new Flutter project.
+App en **Flutter** para un plebiscito vecinal de Dolores Hidalgo: el ciudadano vota por la obra prioritaria del municipio, ve el porcentaje de cada opción y consulta la opción ganadora. La lógica de votación se desarrolló con **TDD** (pruebas primero).
 
-## Getting Started
+| | |
+|---|---|
+| **Alumno** | Cristopher Gerardo Villanueva Ramírez |
+| **Materia** | Desarrollo de Aplicaciones Móviles |
+| **Tarea** | 5 · Desarrollo guiado por pruebas (TDD) |
 
-This project is a starting point for a Flutter application.
+## Capturas de pantalla
 
-A few resources to get you started if this is your first Flutter project:
+<table>
+  <tr><td align="center"><img src="screenshots/01-votacion.png" width="230" alt="Pantalla de votación"><br><sub>Pantalla de votación</sub></td><td align="center"><img src="screenshots/02-voto-registrado.png" width="230" alt="Voto registrado (porcentajes)"><br><sub>Voto registrado (porcentajes)</sub></td><td align="center"><img src="screenshots/03-resultado.png" width="230" alt="Resultado del plebiscito"><br><sub>Resultado del plebiscito</sub></td></tr>
+</table>
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Reglas de negocio (`ServicioVotacion`)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Un voto válido suma 1 a la opción elegida.
+- Votar por una opción inexistente regresa `opcionInvalida`.
+- Un mismo usuario **no puede votar dos veces** (`usuarioYaVoto`).
+- Después de la fecha de cierre no se aceptan votos (`votacionCerrada`).
+- Los resultados se muestran en porcentaje y, si hay empate, se listan todas las opciones ganadoras.
+
+## Estructura
+
+```
+lib/
+├── main.dart
+├── modelos/        # Votacion, OpcionVotacion, ResultadoOpcion
+├── logica/         # ServicioVotacion, ResultadoVoto
+└── presentacion/   # VotacionScreen
+test/
+└── servicio_votacion_test.dart
+```
+
+## Cómo ejecutar
+
+```bash
+flutter pub get
+flutter test     # corre las pruebas unitarias
+flutter run
+```
