@@ -34,6 +34,12 @@ test/
 └── servicio_votacion_test.dart
 ```
 
+## Pruebas (`flutter test`)
+
+Resultado de correr `flutter test`: **10 pruebas pasan** (*All tests passed!*). Las pruebas están en [`test/servicio_votacion_test.dart`](test/servicio_votacion_test.dart).
+
+<img src="screenshots/flutter_test.png" alt="Resultado de flutter test" width="900">
+
 ## Cómo ejecutar
 
 ```bash
